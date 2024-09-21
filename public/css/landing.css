@@ -36,12 +36,11 @@ body{
 }
 
 .nav-list li a:hover {
-    color: #3d6fba; /* Hover effect */
+    color: #f9f7de; /* Hover effect */
 }
 
 .bookB {
-    background: #d92027;
-    color: white !important;
+    background: #f9f7de;
     padding: 10px 20px;
     border-radius: 30px; /* Oblong shape */
     font-size: 18px;
@@ -50,10 +49,21 @@ body{
 }
 
 .bookB:hover {
-    color: white; /* Optional color change */
-    box-shadow: 0 0 20px 10px rgba(66, 90, 243, 0.7); /* Glowing effect */
+    color: black !important; /* Optional color change */
+    box-shadow: 0 0 20px 10px #029f02; /* Glowing effect */
     transform: scale(1.05); /* Slightly scale up on hover */
     transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+#marker {
+    position: absolute;
+    bottom: 0; /* Ensure marker stays at the bottom of the links */
+    height: 5px;
+    background-color: #029f02;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    z-index: 1;
+    left: 0; /* Default position for marker */
 }
 
 .section {
@@ -147,7 +157,7 @@ body{
         flex-direction: column; /* Stack vertically when shown */
         align-items: center;
         position: absolute; /* Show on top */
-        background-color: white; 
+        background-color: #c6e3b2; 
         top: 90px;
         width: 100%; /* Full width of the screen */
         gap: 25px; /* Adjust gap for mobile */
@@ -239,7 +249,7 @@ body{
         flex-direction: column; /* Stack vertically when shown */
         align-items: center;
         position: absolute; /* Show on top */
-        background-color: white; 
+        background-color: #c6e3b2; 
         top: 70px;
         width: 100%; /* Full width of the screen */
         gap: 25px; /* Adjust gap for mobile */

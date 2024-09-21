@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
         <script src="{{ asset('js/landing.js') }}" defer></script>
         <section class="nav">
+            <div id="marker"></div>
          <a href="#home" > <img class="nav-pic" src="{{ asset('images/logo.png') }}" alt="Logo"> </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
