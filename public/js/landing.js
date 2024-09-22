@@ -1,4 +1,4 @@
-        //MENU TAB
+//MENU TAB
 function toggleMenu() {
     const navList = document.querySelector('.nav-list');
     navList.classList.toggle('show');
@@ -29,7 +29,7 @@ const marker = document.querySelector("#marker");
 const links = document.querySelectorAll("ul li a");
 const sections = document.querySelectorAll("section"); // Your content sections
 const logo = document.querySelector(".nav-pic"); // Assuming this is your logo container
-let activeLink = links[0]; // Keep track of the active link (default to the first one)
+let activeLink = null; // Start with no active link
 
 // Set marker on hover and click
 links.forEach((elem) => {
@@ -41,6 +41,7 @@ links.forEach((elem) => {
         else hideUnderline(); // If there's no active link (e.g., on homepage), hide the underline
     });
 });
+
 
 function moveUnderline(elem) {
     marker.style.width = elem.offsetWidth + "px";
@@ -67,8 +68,8 @@ logo.addEventListener("click", () => {
     activeLink = null; // No active link when clicking the logo
 });
 
-// Update marker on scroll based on section visibility
-window.addEventListener("scroll", () => {
+// Function to update marker on scroll based on section visibility
+function updateMarkerOnScroll() {
     let currentSection = '';
     const homeTop = document.querySelector("#home").offsetTop;
     const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
@@ -95,5 +96,10 @@ window.addEventListener("scroll", () => {
             setActive(link); // Set active link based on the section in view
         }
     });
-});
+}
 
+// Trigger the scroll handler when the page is loaded to set the initial state
+window.addEventListener("load", updateMarkerOnScroll);
+
+// Update the marker as the user scrolls
+window.addEventListener("scroll", updateMarkerOnScroll);

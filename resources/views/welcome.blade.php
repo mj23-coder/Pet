@@ -10,7 +10,7 @@
         <script src="{{ asset('js/landing.js') }}" defer></script>
         <section class="nav">
             <div id="marker"></div>
-         <a href="#home" > <img class="nav-pic" src="{{ asset('images/logo.png') }}" alt="Logo"> </a>
+            <a href="#home" > <img class="nav-pic" src="{{ asset('images/logo.png') }}" alt="Logo"> </a>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -24,6 +24,22 @@
             </ul>
         </section>
         <section class="section home" id="home">
+            <section id="slideshow">
+                <div class="entire-content">
+                    <div class="content-carrousel">
+                        <figure class="shadow"><img src="{{ asset('images/waxxu.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/patch.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/bm.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/emi.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/ginger.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/kkk.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/maddie.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/mskape.jpg') }}"></figure>
+                        <figure class="shadow"><img src="{{ asset('images/mathea.jpg') }}"></figure>
+                    </div>
+                </div>
+            </section>
+        </section>
         </section>
         <section class="section about" id="about">
         </section>
@@ -34,4 +50,7 @@
         <section class="section book" id="book">
         </section>
     </body>
+    <footer>
+        <p>  HELLO WORLD AKO NGA PALA YUNG SINAING MO -REYMART TO</p>
+    </footer>
 </html>
