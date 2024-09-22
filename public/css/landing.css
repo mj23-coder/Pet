@@ -104,8 +104,8 @@ body{
 
 .entire-content {
 	margin: auto;
-	width: 190px;
-	perspective: 1000px;
+	width: 200px;
+	perspective: 2000px;
 	position: relative;
 	padding-top: 80px;
 }
@@ -113,7 +113,7 @@ body{
 .content-carrousel {
 	width: 100%;
 	position: absolute;
-	float: right;
+	float: center;
 	animation: rotar 100s infinite linear;
 	transform-style: preserve-3d;
 }
