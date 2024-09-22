@@ -39,6 +39,7 @@
                     </div>
                 </div>
             </section>
+
         </section>
         </section>
         <section class="section about" id="about">
