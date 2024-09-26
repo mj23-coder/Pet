@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
         <title>Laravel</title>
     </head>
     <body >
@@ -24,8 +26,9 @@
             </ul>
         </section>
         <section class="section home" id="home">
-            <div class="picContainer">
-                <div id="info"></div>
+            <div class="flex-container">
+                <div class="picContainer">
+                    <div id="info"></div>
                     <div id="image1" class="img">
                      <img src="{{ asset('images/kkk.jpg') }}" />
                     </div>
@@ -56,15 +59,20 @@
                     <div class="left" onclick="left()"></div>
                     <div class="right" onclick="right()"></div>
                     <div class="dots">
-                    <div class="dot a1"></div>
-                    <div class="dot a2"></div>
-                    <div class="dot a3"></div>
-                    <div class="dot a4"></div>
-                    <div class="dot a5"></div>
-                    <div class="dot a6"></div>
-                    <div class="dot a7"></div>
-                    <div class="dot a8"></div>
-                    <div class="dot a9"></div>
+                        <div class="dot a1"></div>
+                        <div class="dot a2"></div>
+                        <div class="dot a3"></div>
+                        <div class="dot a4"></div>
+                        <div class="dot a5"></div>
+                        <div class="dot a6"></div>
+                        <div class="dot a7"></div>
+                        <div class="dot a8"></div>
+                        <div class="dot a9"></div>
+                    </div>
+                </div>
+                <div class="text-container">
+                 <h1>Kaori, Koa and Kyomi (ParvoVirus Survivor)</h1>
+                 <p>Canine parvovirus (CPV) is a highly contagious viral disease of dogs that commonly causes acute gastrointestinal illness in puppies. The disease most often strikes in pups between six and 20 weeks old, but older animals are sometimes also affected. A rare variant of the disease may be seen in very young (neonatal) puppies is myocarditis (an inflammation of the heart muscle).</p>
                 </div>
             </div>
         </section>

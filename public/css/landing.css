@@ -93,34 +93,64 @@ body{
 .home{
     background-color: antiquewhite;
     align-items: center;
-    justify-content: center;
     /* background-image: url('../images/pets.jpg');Relative path from CSS to public/images folder 
     background-size: cover; Make the image cover the entire section 
     background-position: center; Center the image in the section */
 }
 
+/* Flexbox container to hold images and text side by side */
+.flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 120px;
+}
+
+/* Adjust the width of the picContainer */
 .picContainer {
-  position: absolute;
-  width: 700px;
+  position: relative;
+  width: 600px;
   height: 600px;
   border: 5px solid #262626;
   background: black;
   border-radius: 10px;
   box-shadow: 0px 50px 100px #262626;
 }
-.home img {
-  width: 700px;
-  height: 600px;
+
+/* Text container beside the images */
+.text-container {
+  width: 60%; /* Adjust width as necessary */
+  padding-left: 20px;
+}
+
+.text-container h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.text-container p {
+  font-size: 28px;
+  color: #555;
+  max-width: 70%;
+}
+
+/* Image styling remains the same */
+.flex-container img {
+  width: 100%;
+  height: 100%;
   transition: 1s;
-}   
+}
+
 .img {
-  width: 700px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   position: absolute;
   z-index: 0;
   transition: 1s;
-
 }
+
+/* Navigation buttons (left and right) */
 .right {
   position: absolute;
   height: 100%;
@@ -129,13 +159,15 @@ body{
   cursor: pointer;
   color: #fff;
   transition: 1s;
-  right:0;
-  top:0;
+  right: 0;
+  top: 0;
 }
-.right:hover{
-  background: rgba(0, 0, 0, 0.25)
+
+.right:hover {
+  background: rgba(0, 0, 0, 0.25);
 }
-.right:before{
+
+.right:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f105";
@@ -145,11 +177,13 @@ body{
   top: 50%;
   transform: translateY(-50%) scale(0.75);
   margin-right: 10px;
-  transition: .5s;
+  transition: 0.5s;
 }
-.right:hover:before{
-   transform: translateY(-50%) scale(1);
+
+.right:hover:before {
+  transform: translateY(-50%) scale(1);
 }
+
 .left {
   position: relative;
   height: 100%;
@@ -159,10 +193,12 @@ body{
   color: #fff;
   transition: 1s;
 }
-.left:hover{
-  background: rgba(0, 0, 0, 0.25)
+
+.left:hover {
+  background: rgba(0, 0, 0, 0.25);
 }
-.left:before{
+
+.left:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f104";
@@ -172,12 +208,15 @@ body{
   top: 50%;
   transform: translateY(-50%) scale(0.75);
   margin-left: 10px;
-  transition: .5s;
+  transition: 0.5s;
 }
-.left:hover:before{
-   transform: translateY(-50%) scale(1);
+
+.left:hover:before {
+  transform: translateY(-50%) scale(1);
 }
-.dot{
+
+/* Dots for image navigation */
+.dot {
   position: absolute;
   bottom: 10px;
   left: 50%;
@@ -188,27 +227,29 @@ body{
   background: #333;
   border-radius: 50%;
   cursor: pointer;
-  transition: .5s;
+  transition: 0.5s;
   box-shadow: 0px 0px 5px #fff;
 }
-.dot.a1{margin-left:-70px}
-.dot.a2{margin-left:-50px}
-.dot.a3{margin-left:-30px}
-.dot.a4{margin-left:-10px}
-.dot.a5{margin-left:10px}
-.dot.a6{margin-left:30px}
-.dot.a7{margin-left:50px}
-.dot.a8{margin-left:70px}
-.dot.a9{margin-left:90px}
-.dot.a1:hover{background:#fff}
-.dot.a2:hover{background:#fff}
-.dot.a3:hover{background:#fff}
-.dot.a4:hover{background:#fff}
-.dot.a5:hover{background:#fff}
-.dot.a6:hover{background:#fff}
-.dot.a7:hover{background:#fff}
-.dot.a8:hover{background:#fff}
-.dot.a9:hover{background:#fff}
+
+.dot.a1 { margin-left: -70px; }
+.dot.a2 { margin-left: -50px; }
+.dot.a3 { margin-left: -30px; }
+.dot.a4 { margin-left: -10px; }
+.dot.a5 { margin-left: 10px; }
+.dot.a6 { margin-left: 30px; }
+.dot.a7 { margin-left: 50px; }
+.dot.a8 { margin-left: 70px; }
+.dot.a9 { margin-left: 90px; }
+
+.dot.a1:hover { background: #fff; }
+.dot.a2:hover { background: #fff; }
+.dot.a3:hover { background: #fff; }
+.dot.a4:hover { background: #fff; }
+.dot.a5:hover { background: #fff; }
+.dot.a6:hover { background: #fff; }
+.dot.a7:hover { background: #fff; }
+.dot.a8:hover { background: #fff; }
+.dot.a9:hover { background: #fff; }
 
 #info {
   position: absolute;
@@ -217,6 +258,7 @@ body{
   transform: translateX(-50%);
   color: rgba(0, 0, 0, 0.75);
 }
+
 
 
 .about{
@@ -256,13 +298,83 @@ body{
     margin: 1px 0;
 }
 
-@media (max-width: 1136px){
+@media(max-width: 1260px){
+
+  .text-container h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .text-container p {
+    font-size: 26px;
+    color: #555;
+    max-width: 80%;
+  }
+
+}
+
+@media (max-width: 1144px){
     .nav-list {
         list-style-type: none;
         display: flex;
         flex-wrap: wrap; /* Allow items to wrap */
         gap: 10px;
         margin-right: 5px;
+    }
+
+    .flex-container {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 10px;
+      margin-left: 40px;
+    }
+    
+    /* Adjust the width of the picContainer */
+    .picContainer {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      border: 5px solid #262626;
+      background: black;
+      border-radius: 10px;
+      box-shadow: 0px 50px 100px #262626;
+      margin-right: 20px; /* Space between the image and text */
+      margin-top: auto;
+    }
+    
+    /* Text container beside the images */
+    .text-container {
+      width: 50%; /* Adjust width as necessary */
+      padding-left: 20px;
+    }
+    
+    .text-container h1 {
+      font-size: 35px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .text-container p {
+      font-size: 24px;
+      color: #555;
+      max-width: 80%;
+    }
+    
+    /* Image styling remains the same */
+    .flex-container img {
+      width: 100%;
+      height: 100%;
+      transition: 1s;
+    }
+    
+    .img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 0;
+      transition: 1s;
     }
 
 }
@@ -340,125 +452,151 @@ body{
       background-size: cover; Make the image cover the entire section 
       background-position: center; Center the image in the section */
     }
-  
+
+    .flex-container {
+      display: absolute;
+      justify-content: center;
+    }
+
     .picContainer {
-    position: absolute;
-    width: 500px;
-    height: 350px;
-    border: 5px solid #262626;
-    background: black;
-    border-radius: 10px;
-    box-shadow: 0px 50px 100px #262626;
-    margin-top: -250px;
-  }
-  .home img {
-    width: 500px;
-    height: 350px;
-    transition: 1s;
-  }   
-  .img {
-    width: 500px;
-    height: 350px;
-    position: absolute;
-    z-index: 0;
-    transition: 1s;
+      position: absolute;
+      width: 400px;
+      height: 350px;
+      border: 5px solid #262626;
+      background: black;
+      border-radius: 10px;
+      box-shadow: 0px 50px 100px #262626;
+      margin-top: 0px;
+    }
+    
+    /* Text container beside the images */
+    .text-container {
+      width: 80%; /* Adjust width as necessary */
+      padding-top: 370px;
+    }
+    
+    .text-container h1 {
+      font-size: 35px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .text-container p {
+      font-size: 24px;
+      color: #555;
+      max-width: 80%;
+    }
+    
+    /* Image styling remains the same */
+    .flex-container img {
+      width: 100%;
+      height: 100%;
+      transition: 1s;
+    }
+    
+    .img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 0;
+      transition: 1s;
+    }
   
-  }
-  .right {
-    position: absolute;
-    height: 100%;
-    width: 40px;
-    z-index: 99;
-    cursor: pointer;
-    color: #fff;
-    transition: 1s;
-    right:0;
-    top:0;
-  }
-  .right:hover{
-    background: rgba(0, 0, 0, 0.25)
-  }
-  .right:before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f105";
-    font-size: 30px;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%) scale(0.75);
-    margin-right: 10px;
-    transition: .5s;
-  }
-  .right:hover:before{
-     transform: translateY(-50%) scale(1);
-  }
-  .left {
-    position: relative;
-    height: 100%;
-    width: 40px;
-    z-index: 99;
-    cursor: pointer;
-    color: #fff;
-    transition: 1s;
-  }
-  .left:hover{
-    background: rgba(0, 0, 0, 0.25)
-  }
-  .left:before{
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f104";
-    font-size: 30px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) scale(0.75);
-    margin-left: 10px;
-    transition: .5s;
-  }
-  .left:hover:before{
-     transform: translateY(-50%) scale(1);
-  }
-  .dot{
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    z-index: 99;
-    background: #333;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: .5s;
-    box-shadow: 0px 0px 5px #fff;
-  }
-  .dot.a1{margin-left:-70px}
-  .dot.a2{margin-left:-50px}
-  .dot.a3{margin-left:-30px}
-  .dot.a4{margin-left:-10px}
-  .dot.a5{margin-left:10px}
-  .dot.a6{margin-left:30px}
-  .dot.a7{margin-left:50px}
-  .dot.a8{margin-left:70px}
-  .dot.a9{margin-left:90px}
-  .dot.a1:hover{background:#fff}
-  .dot.a2:hover{background:#fff}
-  .dot.a3:hover{background:#fff}
-  .dot.a4:hover{background:#fff}
-  .dot.a5:hover{background:#fff}
-  .dot.a6:hover{background:#fff}
-  .dot.a7:hover{background:#fff}
-  .dot.a8:hover{background:#fff}
-  .dot.a9:hover{background:#fff}
-  
-  #info {
-    position: absolute;
-    top: -65px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(0, 0, 0, 0.75);
+    .right {
+      position: absolute;
+      height: 100%;
+      width: 40px;
+      z-index: 99;
+      cursor: pointer;
+      color: #fff;
+      transition: 1s;
+      right:0;
+      top:0;
+    }
+    .right:hover{
+      background: rgba(0, 0, 0, 0.25)
+    }
+    .right:before{
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f105";
+      font-size: 30px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.75);
+      margin-right: 10px;
+      transition: .5s;
+    }
+    .right:hover:before{
+      transform: translateY(-50%) scale(1);
+    }
+    .left {
+      position: relative;
+      height: 100%;
+      width: 40px;
+      z-index: 99;
+      cursor: pointer;
+      color: #fff;
+      transition: 1s;
+    }
+    .left:hover{
+      background: rgba(0, 0, 0, 0.25)
+    }
+    .left:before{
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f104";
+      font-size: 30px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scale(0.75);
+      margin-left: 10px;
+      transition: .5s;
+    }
+    .left:hover:before{
+      transform: translateY(-50%) scale(1);
+    }
+    .dot{
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      z-index: 99;
+      background: #333;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: .5s;
+      box-shadow: 0px 0px 5px #fff;
+    }
+    .dot.a1{margin-left:-70px}
+    .dot.a2{margin-left:-50px}
+    .dot.a3{margin-left:-30px}
+    .dot.a4{margin-left:-10px}
+    .dot.a5{margin-left:10px}
+    .dot.a6{margin-left:30px}
+    .dot.a7{margin-left:50px}
+    .dot.a8{margin-left:70px}
+    .dot.a9{margin-left:90px}
+    .dot.a1:hover{background:#fff}
+    .dot.a2:hover{background:#fff}
+    .dot.a3:hover{background:#fff}
+    .dot.a4:hover{background:#fff}
+    .dot.a5:hover{background:#fff}
+    .dot.a6:hover{background:#fff}
+    .dot.a7:hover{background:#fff}
+    .dot.a8:hover{background:#fff}
+    .dot.a9:hover{background:#fff}
+    
+    #info {
+      position: absolute;
+      top: -65px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(0, 0, 0, 0.75);
   }
     
     .about{

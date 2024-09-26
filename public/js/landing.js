@@ -104,31 +104,7 @@ window.addEventListener("load", updateMarkerOnScroll);
 // Update the marker as the user scrolls
 window.addEventListener("scroll", updateMarkerOnScroll);
 
-function highlightDot() {
-    // Reset all dots to the default color
-    a1.style.background = "#333";
-    a2.style.background = "#333";
-    a3.style.background = "#333";
-    a4.style.background = "#333";
-    a5.style.background = "#333";
-    a6.style.background = "#333";
-    a7.style.background = "#333";
-    a8.style.background = "#333";
-    a9.style.background = "#333";
-
-    // Change the color of the active dot
-    if (i == 0) a1.style.background = "#fff";
-    if (i == 1) a2.style.background = "#fff";
-    if (i == 2) a3.style.background = "#fff";
-    if (i == 3) a4.style.background = "#fff";
-    if (i == 4) a5.style.background = "#fff";
-    if (i == 5) a6.style.background = "#fff";
-    if (i == 6) a7.style.background = "#fff";
-    if (i == 7) a8.style.background = "#fff";
-    if (i == 8) a9.style.background = "#fff";
-}
-
-let i = 0;
+let i = 0;  // Start at the first image
 
 let box1 = document.getElementById("image1");
 let box2 = document.getElementById("image2");
@@ -148,179 +124,98 @@ let a6 = document.querySelector(".a6");
 let a7 = document.querySelector(".a7");
 let a8 = document.querySelector(".a8");
 let a9 = document.querySelector(".a9");
-let info = document.getElementById("info");
 
-a1.onclick = function () {
-    box1.style.opacity = 1;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 0;
-    highlightDot();
+let startX; // For detecting swipe start
+
+// Highlight the correct dot based on the current image
+function highlightDot() {
+    a1.style.background = "#333";
+    a2.style.background = "#333";
+    a3.style.background = "#333";
+    a4.style.background = "#333";
+    a5.style.background = "#333";
+    a6.style.background = "#333";
+    a7.style.background = "#333";
+    a8.style.background = "#333";
+    a9.style.background = "#333";
+
+    if (i === 0) a1.style.background = "#fff";
+    if (i === 1) a2.style.background = "#fff";
+    if (i === 2) a3.style.background = "#fff";
+    if (i === 3) a4.style.background = "#fff";
+    if (i === 4) a5.style.background = "#fff";
+    if (i === 5) a6.style.background = "#fff";
+    if (i === 6) a7.style.background = "#fff";
+    if (i === 7) a8.style.background = "#fff";
+    if (i === 8) a9.style.background = "#fff";
 }
 
-a2.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 1;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 1;
-    highlightDot();
+// Function to display the current box and hide others
+function setBoxOpacity(index) {
+    const boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
+
+    boxes.forEach(box => {
+        box.style.opacity = 0;  // Hide all boxes
+    });
+
+    boxes[index].style.opacity = 1;  // Show the current box
+    highlightDot();  // Update the dots
 }
 
-a3.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 1;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 2;
-    highlightDot();
+// Dot click handlers
+a1.onclick = function () { i = 0; setBoxOpacity(i); }
+a2.onclick = function () { i = 1; setBoxOpacity(i); }
+a3.onclick = function () { i = 2; setBoxOpacity(i); }
+a4.onclick = function () { i = 3; setBoxOpacity(i); }
+a5.onclick = function () { i = 4; setBoxOpacity(i); }
+a6.onclick = function () { i = 5; setBoxOpacity(i); }
+a7.onclick = function () { i = 6; setBoxOpacity(i); }
+a8.onclick = function () { i = 7; setBoxOpacity(i); }
+a9.onclick = function () { i = 8; setBoxOpacity(i); }
+
+// Right navigation function
+function right() {
+    i = (i + 1) % 9;  // Increment and loop back to 0
+    setBoxOpacity(i);
 }
 
-a4.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 1;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 3;
-    highlightDot();
+// Left navigation function
+function left() {
+    i = (i - 1 + 9) % 9;  // Decrement and loop back to the last image
+    setBoxOpacity(i);
 }
 
-a5.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 1;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 4;
-    highlightDot();
-}
-
-a6.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 1;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 5;
-    highlightDot();
-}
-
-a7.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 1;
-    box8.style.opacity = 0;
-    box9.style.opacity = 0;
-    i = 6;
-    highlightDot();
-}
-
-a8.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 1;
-    box9.style.opacity = 0;
-    i = 7;
-    highlightDot();
-}
-
-a9.onclick = function () {
-    box1.style.opacity = 0;
-    box2.style.opacity = 0;
-    box3.style.opacity = 0;
-    box4.style.opacity = 0;
-    box5.style.opacity = 0;
-    box6.style.opacity = 0;
-    box7.style.opacity = 0;
-    box8.style.opacity = 0;
-    box9.style.opacity = 1;
-    i = 8;
-    highlightDot();
-}
-
+// Arrow key handlers for navigation
 document.addEventListener("keydown", (e) => {
     if (e.keyCode == 37) {
+        left();
+    }
+    if (e.keyCode == 39) {
         right();
     }
 });
 
-document.addEventListener("keydown", (e) => {
-    if (e.keyCode == 39 ) {
-        right();
+// Touch event listeners for swipe functionality on mobile
+document.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;  // Get the X-coordinate where the touch starts
+});
+
+document.addEventListener("touchend", (e) => {
+    let endX = e.changedTouches[0].clientX;  // Get the X-coordinate where the touch ends
+
+    // Swipe right (show previous image)
+    if (startX - endX > 50) {
+        right();  // Go to the next image
+    }
+
+    // Swipe left (show next image)
+    if (endX - startX > 50) {
+        left();  // Go to the previous image
     }
 });
 
-function right() {
-    // Create an array of all the boxes
-    const boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
-
-    // Increment i and reset to 0 if necessary (looping back)
-    i = (i + 1) % boxes.length;  // This will loop back to 0 when it reaches the last box
-
-    // Reset all boxes to 0 opacity
-    boxes.forEach(box => box.style.opacity = 0);
-
-    // Set the current box to 1 opacity
-    boxes[i].style.opacity = 1;
-
-    // Call highlightDot to update the corresponding dot
-    highlightDot();
+// Set the first image to display on page load
+window.onload = function () {
+    i = 0;  // Set to the first image
+    setBoxOpacity(i);  // Display the first image and highlight the first dot
 }
-
-
-
-function left() {
-    // Create an array of all the boxes
-    const boxes = [box1, box2, box3, box4, box5, box6, box7, box8, box9];
-
-    // Decrement i and reset to last box if necessary (looping back)
-    i = (i - 1 + boxes.length) % boxes.length;  // This will loop back to the last box when it reaches 0
-
-    // Reset all boxes to 0 opacity
-    boxes.forEach(box => box.style.opacity = 0);
-
-    // Set the current box to 1 opacity
-    boxes[i].style.opacity = 1;
-
-    // Call highlightDot to update the corresponding dot
-    highlightDot();
-}
-
